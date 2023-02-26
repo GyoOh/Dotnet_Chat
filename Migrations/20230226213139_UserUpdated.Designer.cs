@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Chat.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20230223064830_addUser")]
-    partial class addUser
+    [Migration("20230226213139_UserUpdated")]
+    partial class UserUpdated
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -114,7 +114,7 @@ namespace Chat.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasDefaultValueSql("now()");
 
-                    b.Property<string>("Email")
+                    b.Property<string>("UName")
                         .IsRequired()
                         .HasColumnType("text");
 

@@ -36,7 +36,10 @@ namespace Chat.Controllers
             {
                 return NotFound();
             }
-            return await _context.Messages.ToListAsync();
+            return await _context
+                .Messages
+                .OrderBy(m => m.Created)
+                .ToListAsync();
         }
 
         // GET: api/Messages/5

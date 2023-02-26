@@ -23,6 +23,7 @@ public class ChannelsController : ControllerBase
     public async Task<ActionResult<IEnumerable<Channel>>> GetChannels()
     {
         return await _context.Channels.ToListAsync();
+
     }
 
     [HttpGet("{id}")]
@@ -73,8 +74,7 @@ public class ChannelsController : ControllerBase
 
         _context.Entry(Channel).State = EntityState.Modified;
         await _context.SaveChangesAsync();
-
-        return NoContent();
+        return CreatedAtAction("GetChannel", new { id = Channel.Id }, Channel);
     }
 
     [HttpDelete("{id}")]
